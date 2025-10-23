@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cocktail Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c44dbc2ee4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- === LANDING SECTION === -->
+
+  <section class="hero">
+    <!-- Dark Mode & Light Mode Button Code-->
+    <div class="LightChange">
+      <input type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <span class="ball"></span>
+      </label>
+    </div>
+    <!--End Dark Mode & Light Mode Button Code -->
+
+    <div class="hero-content">
+      <h1>Cocktails Website 🍸</h1>
+      <p class="subheading">Discover how to make the most popular drinks</p>
+      <p class="description">
+        Whether you're a casual enthusiast or an aspiring mixologist, our cocktail experiences bring the art of
+        drink-making right to your screen. From timeless classics to modern twists, you'll learn the secrets behind the
+        perfect pour, the balance of flavors, and the flair that makes every cocktail unforgettable. Join us to shake up
+        your skills, impress your guests, and explore the world of spirits with confidence and creativity.
+      </p>
+      <a href="#explorer" class="btn">Explore More</a>
+    </div>
+  </section>
+
+  <!-- === CATEGORY FILTER SECTION === -->
+  <section class="explorer" id="explorer">
+    <header>
+      <h2>EXPLORE COCKTAILS HERE🍸</h2>
+      <select id="categorySelect">
+        <option value="all">All Categories</option>
+      </select>
+    </header>
+
+    <main id="cocktailList"></main>
+  </section>
+
+  <!-- === MODAL === -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImg" />
+      <p id="modalInstructions"></p>
+      <h4>Ingredients:</h4>
+      <ul id="modalIngredients"></ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="last-text">
+      <p>Developed with &hearts; by SanjanaSahani @2025</p>
+    </div>
+    <a href="#" class="top"><i class="fa-solid fa-arrow-up fa-beat-fade"></i></a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
