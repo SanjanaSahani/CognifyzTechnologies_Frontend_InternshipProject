@@ -14,16 +14,6 @@
   <!-- === LANDING SECTION === -->
 
   <section class="hero">
-    <!-- Dark Mode & Light Mode Button Code-->
-    <div class="LightChange">
-      <input type="checkbox" class="checkbox" id="checkbox">
-      <label for="checkbox" class="checkbox-label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <span class="ball"></span>
-      </label>
-    </div>
-    <!--End Dark Mode & Light Mode Button Code -->
 
     <div class="hero-content">
       <h1>Cocktails Website 🍸</h1>
@@ -36,18 +26,29 @@
       </p>
       <a href="#explorer" class="btn">Explore More</a>
     </div>
+
   </section>
 
   <!-- === CATEGORY FILTER SECTION === -->
   <section class="explorer" id="explorer">
     <header>
-      <h2>EXPLORE COCKTAILS HERE🍸</h2>
+      <div>
+        <h2>EXPLORE COCKTAILS HERE🍸</h2>
+
+        <!-- Dark Mode & Light Mode Button Code-->
+        <div class="button">
+          <button type="button" id="dark-button">&#127769; Dark</button>
+          <button type="button" id="light-button">&#9728; Light</button>
+        </div>
+        <!--End Dark Mode & Light Mode Button Code -->
+
+      </div>
       <select id="categorySelect">
         <option value="all">All Categories</option>
       </select>
     </header>
-
     <main id="cocktailList"></main>
+
   </section>
 
   <!-- === MODAL === -->
@@ -61,6 +62,10 @@
       <ul id="modalIngredients"></ul>
     </div>
   </div>
+
+   <!-- === FORM === -->
+
+   
 
   <footer>
     <div class="last-text">

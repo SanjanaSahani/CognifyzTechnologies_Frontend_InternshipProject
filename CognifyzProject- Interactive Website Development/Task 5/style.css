@@ -159,18 +159,24 @@ body {
 
 /* === EXPLORER SECTION === */
 .explorer {
+  text-align: center;
   padding: 2rem;
   background-color: #f9f9f9;
 }
 
 .explorer header {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .explorer header h2 {
-  margin-bottom: 1rem;
+  font-size: 32px;
 }
+.explore{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
 
 #categorySelect {
   padding: 12px 18px;
@@ -200,6 +206,69 @@ body {
   border-color: #2980b9;
   box-shadow: 0 0 8px #2980b9;
   background-color: #273c55;
+}
+
+/* Buttons */
+.button {
+  position: absolute;
+  right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(0, 108, 52);
+}
+
+/* --- Light Mode --- */
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.4s ease;
+}
+
+/* --- Dark Mode  --- */
+body.active {
+  background-color: black;
+  color: white;
+}
+
+body.active button {
+  background-color: white;
+  color: black;
+}
+
+body.active button:hover {
+  background-color: rgb(50, 200, 120);
+}
+
+body.active .explorer{
+  background-color: #121212; 
+  color: #ffffff;
+}
+
+body.active .card{
+  background-color: #1e2a38;
+}
+
+body.active .modal-content{
+   background-color: #121212; 
+}
+
+body.active .top i {
+  color: white;
 }
 
 /* === Cocktail Cards === */
@@ -309,52 +378,4 @@ main > * {
     font-size: 20px;
     padding: 10px 13px;
     border-radius: 0.5rem;
-}
-
-
-
-/* check this code when u free  */
-
-
-
-
-body.dark {background-color: #292c35;} /* #9b59b6 */
-
-body.dark h1, body.dark .support a {color: #fff;}
-
-.checkbox {
-  opacity: 0;
-  position: absolute;
-}
-
-.checkbox-label {
-  background-color: #111;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fa-moon {color: #f1c40f;}
-
-.fa-sun {color: #f39c12;}
-
-.checkbox-label .ball {
-  background-color: #fff;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
-
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
 }

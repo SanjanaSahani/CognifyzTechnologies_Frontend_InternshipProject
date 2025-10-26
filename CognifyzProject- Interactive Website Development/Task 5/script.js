@@ -1,4 +1,5 @@
 const API_URL = 'https://boozeapi.com/api/v1/cocktails';
+
 const cocktailList = document.getElementById('cocktailList');
 const categorySelect = document.getElementById('categorySelect');
 
@@ -9,12 +10,18 @@ const modalImg = document.getElementById('modalImg');
 const modalInstructions = document.getElementById('modalInstructions');
 const modalIngredients = document.getElementById('modalIngredients');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.getElementById("checkbox");
-  checkbox.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
-  });
-});
+const darkButton = document.getElementById('dark-button');
+const lightButton = document.getElementById('light-button');
+
+darkButton.onclick = function() {
+  document.body.classList.add('active'); // Activate dark mode
+  console.log("Dark Mode ON");
+};
+
+lightButton.onclick = function() {
+  document.body.classList.remove('active'); // Back to light mode
+  console.log("Light Mode ON");
+};
 
 
 let cocktails = [];
