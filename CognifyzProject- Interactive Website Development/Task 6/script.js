@@ -1,4 +1,5 @@
 const API_URL = 'https://boozeapi.com/api/v1/cocktails';
+
 const cocktailList = document.getElementById('cocktailList');
 const categorySelect = document.getElementById('categorySelect');
 
@@ -9,20 +10,17 @@ const modalImg = document.getElementById('modalImg');
 const modalInstructions = document.getElementById('modalInstructions');
 const modalIngredients = document.getElementById('modalIngredients');
 
-const DarkButton = document.getElementById('dark-button');
-const LightButton = document.getElementById('light-button');
-const allParagraphs = document.querySelectorAll('p'); 
-const Heading = document.querySelector('h2')
+const darkButton = document.getElementById('dark-button');
+const lightButton = document.getElementById('light-button');
 
-DarkButton.onclick = function() {
-    document.body.style.backgroundColor = "black";
-    console.log("black");
-    
+darkButton.onclick = function() {
+  document.body.classList.add('active'); // Activate dark mode
+  console.log("Dark Mode ON");
 };
 
-LightButton.onclick = function() {
-    document.body.style.backgroundColor = "white";
-     console.log("white");
+lightButton.onclick = function() {
+  document.body.classList.remove('active'); // Back to light mode
+  console.log("Light Mode ON");
 };
 
 let cocktails = [];
@@ -97,3 +95,51 @@ window.addEventListener('click', (e) => {
 });
 
 fetchCocktails();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("cocktailForm");
+  const successMsg = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+    successMsg.style.display = "none"; // reset success message
+
+    // Validate each field
+    const fields = form.querySelectorAll("[required]");
+    fields.forEach((field) => {
+      const errorMessage = field.nextElementSibling;
+      if (field.value.trim() === "") {
+        errorMessage.textContent = "This field is required.";
+        errorMessage.style.display = "block";
+        field.style.borderColor = "red";
+        isValid = false;
+      } else {
+        // Email validation
+        if (field.type === "email" && !validateEmail(field.value)) {
+          errorMessage.textContent = "Please enter a valid email address.";
+          errorMessage.style.display = "block";
+          field.style.borderColor = "red";
+          isValid = false;
+        } else {
+          errorMessage.textContent = "";
+          errorMessage.style.display = "none";
+          field.style.borderColor = "#ccc";
+        }
+      }
+    });
+
+    if (isValid) {
+      successMsg.textContent = "🎉 Thank you! Your cocktail recipe has been submitted.";
+      successMsg.style.display = "block";
+      form.reset();
+    }
+  });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+});
+

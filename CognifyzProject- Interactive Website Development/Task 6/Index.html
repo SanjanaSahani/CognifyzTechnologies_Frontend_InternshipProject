@@ -31,8 +31,8 @@
 
   <!-- === CATEGORY FILTER SECTION === -->
   <section class="explorer" id="explorer">
-    <header>
-      <div>
+     <header>
+      <div class="explore">
         <h2>EXPLORE COCKTAILS HERE🍸</h2>
 
         <!-- Dark Mode & Light Mode Button Code-->
@@ -43,9 +43,11 @@
         <!--End Dark Mode & Light Mode Button Code -->
 
       </div>
-      <select id="categorySelect">
+     <div id="category">
+       <select id="categorySelect">
         <option value="all">All Categories</option>
       </select>
+     </div>
     </header>
     <main id="cocktailList"></main>
 
@@ -63,7 +65,66 @@
     </div>
   </div>
 
-   <!-- === FORM === -->
+
+  <!-- === FORM SECTION === -->
+  <section class="form-section" id="submitForm">
+    <h2>Share Your Own Cocktail Recipe 🍹</h2>
+    <p class="form-subtext">Got a favorite mix? Submit your recipe and inspire others!</p>
+
+    <form id="cocktailForm" novalidate>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Your Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Cocktail Name -->
+      <div class="form-group">
+        <label for="cocktailName">Cocktail Name <span class="required">*</span></label>
+        <input type="text" id="cocktailName" name="cocktailName" placeholder="e.g., Mojito" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Category -->
+      <div class="form-group">
+        <label for="categoryType">Category</label>
+        <select id="categoryType" name="categoryType">
+          <option value="">Select a category</option>
+          <option value="Classic">Classic</option>
+          <option value="Tropical">Tropical</option>
+          <option value="Mocktail">Mocktail</option>
+          <option value="Signature">Signature</option>
+        </select>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="form-group">
+        <label for="ingredients">Ingredients <span class="required">*</span></label>
+        <textarea id="ingredients" name="ingredients" rows="3" placeholder="List your ingredients..." required></textarea>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Instructions -->
+      <div class="form-group">
+        <label for="instructions">Instructions <span class="required">*</span></label>
+        <textarea id="instructions" name="instructions" rows="4" placeholder="How to make it..." required></textarea>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Submit Recipe</button>
+      <p id="formSuccess" class="success-message"></p>
+    </form>
+  </section>
 
    
 
