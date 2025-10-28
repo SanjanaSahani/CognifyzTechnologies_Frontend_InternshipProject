@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cocktail Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c44dbc2ee4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- === LANDING SECTION === -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+      <h1>Cocktails Website 🍸</h1>
+      <p class="subheading">Discover how to make the most popular drinks</p>
+      <p class="description">
+        Whether you're a casual enthusiast or an aspiring mixologist, our cocktail experiences bring the art of
+        drink-making right to your screen. From timeless classics to modern twists, you'll learn the secrets behind the
+        perfect pour, the balance of flavors, and the flair that makes every cocktail unforgettable. Join us to shake up
+        your skills, impress your guests, and explore the world of spirits with confidence and creativity.
+      </p>
+      <a href="#explorer" class="btn">Explore More</a>
+    </div>
+
+  </section>
+
+  <!-- === CATEGORY FILTER SECTION === -->
+  <section class="explorer" id="explorer">
+    <header>
+      <div class="explore">
+        <h2>EXPLORE COCKTAILS HERE🍸</h2>
+
+        <!-- Dark Mode & Light Mode Button Code-->
+        <div class="button">
+          <button type="button" id="dark-button">🌙 Dark</button>
+          <button type="button" id="light-button">☀️ Light</button>
+        </div>
+        <!--End Dark Mode & Light Mode Button Code -->
+
+      </div>
+      <div id="category">
+        <select id="categorySelect">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+    </header>
+    <main id="cocktailList"></main>
+
+  </section>
+
+  <!-- === MODAL === -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImg" />
+      <p id="modalInstructions"></p>
+      <h4>Ingredients:</h4>
+      <ul id="modalIngredients"></ul>
+    </div>
+  </div>
+
+  <!-- === ABOUT SECTION === -->
+   <h1 class="about-head">About Us</h1>
+<section class="about" id="about">
+  <div class="about-container">
+    <div class="about-text glass-box">
+      <h2>About <span>Cocktail Explorer 🍸</span></h2>
+      <p>
+        Welcome to <strong>Cocktail Explorer</strong> — your one-stop destination for discovering, learning, and creating
+        the most iconic cocktails from around the world. Whether you’re a casual drink lover or an aspiring mixologist,
+        our mission is to help you shake, stir, and sip your way to perfection.
+      </p>
+
+      <p>
+        Every recipe we feature is hand-picked for its flavor, story, and style. From timeless classics like the
+        <em>Mojito</em> and <em>Martini</em> to creative modern mixes, we bring you inspiration to elevate your cocktail
+        skills and impress your guests.
+      </p>
+
+      <p>
+        Join our growing community of cocktail enthusiasts and discover how easy it is to craft professional-quality
+        drinks right from your kitchen. Here, every pour tells a story — and every sip is an experience.
+      </p>
+
+      <a href="#explorer" class="about-btn">Explore Cocktails</a>
+    </div>
+
+    <div class="about-image">
+      <img
+        src="https://cdn.pixabay.com/photo/2022/06/01/08/57/watermelon-7235140_1280.jpg"
+        alt="Cocktail Mixology"
+      />
+    </div>
+  </div>
+</section>
+
+
+  <!-- === FORM SECTION === -->
+  <section class="form-section" id="submitForm">
+    <h2>Share Your Own Cocktail Recipe 🍹</h2>
+    <p class="form-subtext">Got a favorite mix? Submit your recipe and inspire others!</p>
+
+    <form id="cocktailForm" novalidate>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Your Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Cocktail Name -->
+      <div class="form-group">
+        <label for="cocktailName">Cocktail Name <span class="required">*</span></label>
+        <input type="text" id="cocktailName" name="cocktailName" placeholder="e.g., Mojito" required />
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Category -->
+      <div class="form-group">
+        <label for="categoryType">Category</label>
+        <select id="categoryType" name="categoryType">
+          <option value="">Select a category</option>
+          <option value="Classic">Classic</option>
+          <option value="Tropical">Tropical</option>
+          <option value="Mocktail">Mocktail</option>
+          <option value="Signature">Signature</option>
+        </select>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="form-group">
+        <label for="ingredients">Ingredients <span class="required">*</span></label>
+        <textarea id="ingredients" name="ingredients" rows="3" placeholder="List your ingredients..."
+          required></textarea>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Instructions -->
+      <div class="form-group">
+        <label for="instructions">Instructions <span class="required">*</span></label>
+        <textarea id="instructions" name="instructions" rows="4" placeholder="How to make it..." required></textarea>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Submit Recipe</button>
+      <p id="formSuccess" class="success-message"></p>
+    </form>
+  </section>
+
+    <h1 class="Image-head">Classic Cocktails </h1>
+  <section class="image-carousel">
+    <div class="carousel-wrapper">
+      <div class="carousel-slides">
+        <div class="slide"><img src="https://cdn.pixabay.com/photo/2020/12/15/13/42/drink-5833675_1280.jpg"
+            alt="Cocktail 1"></div>
+        <div class="slide"><img src="https://cdn.pixabay.com/photo/2020/01/21/11/36/caipirinha-4782694_1280.jpg"
+            alt="Cocktail 2"></div>
+        <div class="slide"><img src="https://cdn.pixabay.com/photo/2018/03/18/18/54/drink-3237895_1280.jpg"
+            alt="Cocktail 3"></div>
+        <div class="slide"><img src="https://cdn.pixabay.com/photo/2016/11/19/13/53/margarita-1839361_1280.jpg"
+            alt="Cocktail 4"></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- === FOOTER SECTION === -->
+ <footer class="glass-footer">
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      <h2>Cocktail Explorer 🍸</h2>
+      <p>Shake, Stir, and Sip — Discover the art of mixology with us.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#explorer">Cocktails</a></li>
+        <li><a href="#submitForm">Submit Recipe</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-socials">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Developed with <span class="heart">&hearts;</span> by <strong>Sanjana Sahani</strong> © 2025</p>
+    <a href="#" class="scroll-top"><i class="fa-solid fa-arrow-up fa-beat-fade"></i></a>
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
