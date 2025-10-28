@@ -83,21 +83,23 @@ This project demonstrates **progressive frontend development skills** from basic
 ---
 
 ## 📂 Project Structure
-
+```bash
 CognifyzTechnologies_Frontend_InternshipProject/
 │
 ├── index.html # Main webpage
 ├── style.css # Custom CSS for earlier tasks
 ├── script.js # JavaScript functionality
 └── README.md # Project documentation
-
+```
 
 ---
 
 ## 🚀 How to Use
 
-1. Clone the repository:  
+
 ```bash
+1. Clone the repository:  
+
 git clone https://github.com/SanjanaSahani/CognifyzTechnologies_Frontend_InternshipProject.git
 
 2. Open index.html in your browser to explore the project.
@@ -111,9 +113,11 @@ git clone https://github.com/SanjanaSahani/CognifyzTechnologies_Frontend_Interns
 
 ## 📌 Author
 
+```bash
 Sanjana Sahani
 Frontend Developer Intern at Cognifyz Technologies
 GitHub: https://github.com/SanjanaSahani
+```
 
 ## 📄 License
 
