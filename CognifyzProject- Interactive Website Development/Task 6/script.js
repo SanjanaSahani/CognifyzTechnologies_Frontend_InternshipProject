@@ -13,12 +13,12 @@ const modalIngredients = document.getElementById('modalIngredients');
 const darkButton = document.getElementById('dark-button');
 const lightButton = document.getElementById('light-button');
 
-darkButton.onclick = function() {
+darkButton.onclick = function () {
   document.body.classList.add('active'); // Activate dark mode
   console.log("Dark Mode ON");
 };
 
-lightButton.onclick = function() {
+lightButton.onclick = function () {
   document.body.classList.remove('active'); // Back to light mode
   console.log("Light Mode ON");
 };

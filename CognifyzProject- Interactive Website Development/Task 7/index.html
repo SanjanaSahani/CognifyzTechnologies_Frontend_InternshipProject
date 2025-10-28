@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cocktail Explorer</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://kit.fontawesome.com/c44dbc2ee4.js" crossorigin="anonymous"></script>
+
+  <!-- Tailwind + Flowbite -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+</head>
+
+<body class="transition-colors duration-500 bg-white text-gray-900">
+
+  <!-- === HERO SECTION === -->
+  <section
+    class="relative h-screen bg-cover bg-center bg-[url('https://cdn.pixabay.com/photo/2022/01/19/18/15/cocktail-6950675_1280.jpg')] text-white">
+    <!-- Gradient + dark overlay -->
+    <div class="absolute inset-0 before:absolute before:inset-0 before:bg-black/30"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-6 text-center flex flex-col justify-center h-full">
+      <h1 class="text-5xl font-bold mb-4">Cocktails Website 🍸</h1>
+      <p class="text-xl mb-6">Discover how to make the most popular drinks</p>
+      <p class="mb-8 max-w-3xl mx-auto">
+        Whether you're a casual enthusiast or an aspiring mixologist, our cocktail experiences bring the art of
+        drink-making right to your screen. From timeless classics to modern twists, you'll learn the secrets behind the
+        perfect pour, the balance of flavors, and the flair that makes every cocktail unforgettable. Join us to shake up
+        your skills, impress your guests, and explore the world of spirits with confidence and creativity.
+      </p>
+      <a href="#explorer"
+        class="relative inline-block px-1 py-1 font-semibold text-white rounded-full w-max mx-auto overflow-hidden group">
+
+        <!-- Animated gradient border -->
+        <span class="absolute -inset-0.5 bg-gradient-to-r from-[#0057e7] to-[#001f4d] 
+               rounded-full blur opacity-75 animate-gradient-x -z-10"></span>
+
+        <!-- Inner black button -->
+        <span class="relative block bg-black rounded-full px-6 py-3">
+          Explore More
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- === CATEGORY FILTER SECTION === -->
+  <section class="explorer py-16 bg-gray-100" id="explorer">
+    <div class="container mx-auto px-6">
+      <header class="flex flex-col gap-8 justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold mb-4 md:mb-0">EXPLORE COCKTAILS HERE 🍸</h2>
+        <div class="flex space-x-2 mb-4 md:mb-0">
+          <button id="dark-button" class="px-4 py-2 bg-gray-800 text-white rounded dark:bg-gray-200 dark:text-black">🌙
+            Dark</button>
+          <button id="light-button" class="px-4 py-2 bg-white border border-gray-300 rounded">☀️ Light</button>
+        </div>
+        <select id="categorySelect" style="    border: 2px solid #2c3e50;background-color: #1e2a38;color: #ecf0f1;"
+          class="w-[600px] mt-4 md:mt-0 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="all">All Categories</option>
+        </select>
+      </header>
+
+      <main id="cocktailList" class="flex flex-wrap justify-center gap-4"></main>
+    </div>
+  </section>
+
+  <!-- === MODAL === -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div id="modalData" class="bg-white p-8 w-full max-w-lg rounded-xl relative overflow-y-auto max-h-[90vh]">
+      <span id="closeModal" class="absolute top-4 right-5 text-2xl cursor-pointer">&times;</span>
+      <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+      <img id="modalImg" class="w-full rounded mb-4" />
+      <p id="modalInstructions" class="mb-4"></p>
+      <h4 class="font-semibold mb-2">Ingredients:</h4>
+      <ul id="modalIngredients" class="list-disc list-inside"></ul>
+    </div>
+  </div>
+
+
+  <!-- === ABOUT SECTION === -->
+  <h1 id="about-h" class="text-center  text-4xl font-bold text-black bg-white pt-5">About Us</h1>
+
+  <section id="about"
+    class="py-20 bg-white px-8 flex justify-center items-center bg-gradient-to-br from-white/5 to-white/8 relative">
+    <div class="flex flex-wrap items-center justify-center gap-12 max-w-[1200px] w-full">
+
+      <!-- === GLASS BOX FOR TEXT === -->
+      <div
+        class="flex-1 min-w-[500px] bg-black/55 bg-gradient-to-br from-black/55 to-black/35 backdrop-blur-[14px] backdrop-saturate-[180%] rounded-xl border border-white/20 p-10 text-white shadow-lg">
+        <h2 class="text-2xl font-bold mb-6 text-white bg-gradient-to-r from-[#fe1427] to-[#242324] p-4">
+          About <span class="font-bold">Cocktail Explorer 🍸</span>
+        </h2>
+
+        <p class="mb-5 leading-relaxed text-white/90 text-base">
+          Welcome to <strong>Cocktail Explorer</strong> — your one-stop destination for discovering, learning, and
+          creating
+          the most iconic cocktails from around the world. Whether you’re a casual drink lover or an aspiring
+          mixologist,
+          our mission is to help you shake, stir, and sip your way to perfection.
+        </p>
+
+        <p class="mb-5 leading-relaxed text-white/90 text-base">
+          Every recipe we feature is hand-picked for its flavor, story, and style. From timeless classics like the
+          <em>Mojito</em> and <em>Martini</em> to creative modern mixes, we bring you inspiration to elevate your
+          cocktail
+          skills and impress your guests.
+        </p>
+
+        <p class="mb-5 leading-relaxed text-white/90 text-base">
+          Join our growing community of cocktail enthusiasts and discover how easy it is to craft professional-quality
+          drinks right from your kitchen. Here, every pour tells a story — and every sip is an experience.
+        </p>
+
+        <a href="#explorer"
+          class="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-[#fe1427] to-[#242324] text-white rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-300/50">
+          Explore Cocktails
+        </a>
+      </div>
+
+      <!-- === IMAGE STYLING === -->
+      <div class="flex-1 min-w-[400px] flex justify-center items-center">
+        <img src="https://cdn.pixabay.com/photo/2022/06/01/08/57/watermelon-7235140_1280.jpg" alt="Cocktail Mixology"
+          class="w-full max-w-[450px] rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] object-cover" />
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- === FORM SECTION === -->
+  <section class="relative py-10 bg-cover bg-center bg-no-repeat text-center"
+    style="background-image: url('https://cdn.pixabay.com/photo/2015/10/21/14/42/mojito-999791_1280.jpg');"
+    id="submitForm">
+    <!-- Overlay -->
+    <div class="absolute inset-0 backdrop-blur-sm bg-black/30"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-2">Share Your Own Cocktail Recipe 🍹</h2>
+      <p class="text-gray-200 mb-8">Got a favorite mix? Submit your recipe and inspire others!</p>
+
+      <form id="cocktailForm"
+        class="space-y-5 text-left bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-8 shadow-xl text-white"
+        novalidate>
+        <!-- Name -->
+        <div>
+          <label for="name" class="block font-semibold text-gray-900 mb-1">
+            Your Name <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="name" name="name" placeholder="Enter your name"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900"
+            required />
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block font-semibold text-gray-900 mb-1">
+            Email <span class="text-red-500">*</span>
+          </label>
+          <input type="email" id="email" name="email" placeholder="example@email.com"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900"
+            required />
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Cocktail Name -->
+        <div>
+          <label for="cocktailName" class="block font-semibold text-gray-900 mb-1">
+            Cocktail Name <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="cocktailName" name="cocktailName" placeholder="e.g., Mojito"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900"
+            required />
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Category -->
+        <div>
+          <label for="categoryType" class="block font-semibold text-gray-900 mb-1">Category</label>
+          <select id="categoryType" name="categoryType"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900">
+            <option value="">Select a category</option>
+            <option value="Classic">Classic</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Mocktail">Mocktail</option>
+            <option value="Signature">Signature</option>
+          </select>
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Ingredients -->
+        <div>
+          <label for="ingredients" class="block font-semibold text-gray-900 mb-1">
+            Ingredients <span class="text-red-500">*</span>
+          </label>
+          <textarea id="ingredients" name="ingredients" rows="3" placeholder="List your ingredients..."
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900"
+            required></textarea>
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Instructions -->
+        <div>
+          <label for="instructions" class="block font-semibold text-gray-900 mb-1">
+            Instructions <span class="text-red-500">*</span>
+          </label>
+          <textarea id="instructions" name="instructions" rows="4" placeholder="How to make it..."
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900"
+            required></textarea>
+          <small class="error-message text-red-500 text-sm"></small>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full bg-indigo-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-md shadow-md transition">
+          Submit Recipe
+        </button>
+
+        <p id="formSuccess" class="text-green-400 mt-3 text-center"></p>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- === IMAGE CAROUSEL === -->
+  <section id="Carousel" class="image-carousel w-full overflow-hidden bg-white py-8">
+    <h2 class="text-3xl font-bold text-center m-6 pb-4">Classic Cocktails</h2>
+
+    <!-- Carousel Container -->
+    <div id="cocktailCarousel" class="relative w-full" data-carousel="slide" data-carousel-interval="4000">
+
+      <!-- Carousel Wrapper -->
+      <div class="relative h-[600px] overflow-hidden rounded-xl m-1">
+
+        <!-- Slide 1 -->
+        <div class="duration-700 ease-in-out" data-carousel-item="active">
+          <img src="https://cdn.pixabay.com/photo/2020/12/15/13/42/drink-5833675_1280.jpg"
+            class="absolute w-screen h-full object-cover top-0 left-0" alt="Cocktail 1">
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="duration-700 ease-in-out" data-carousel-item>
+          <img src="https://cdn.pixabay.com/photo/2020/01/21/11/36/caipirinha-4782694_1280.jpg"
+            class="absolute w-screen h-full object-cover top-0 left-0" alt="Cocktail 2">
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="duration-700 ease-in-out" data-carousel-item>
+          <img src="https://cdn.pixabay.com/photo/2018/03/18/18/54/drink-3237895_1280.jpg"
+            class="absolute w-screen h-full object-cover top-0 left-0" alt="Cocktail 3">
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="duration-700 ease-in-out" data-carousel-item>
+          <img src="https://cdn.pixabay.com/photo/2016/11/19/13/53/margarita-1839361_1280.jpg"
+            class="absolute w-screen h-full object-cover top-0 left-0" alt="Cocktail 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- === FOOTER === -->
+  <footer
+    class="relative w-full text-center text-white py-12 px-6 bg-[rgba(0,0,0,0.15)] backdrop-blur-[15px] saturate-[180%] border-t border-[rgba(0,0,128,0.5)] overflow-hidden">
+
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[rgba(0,0,128,0.3)] to-[rgba(0,0,0,0.6)] z-0"></div>
+
+    <!-- Footer Container -->
+    <div class="relative z-10 flex flex-wrap justify-center items-start gap-12 max-w-[1100px] mx-auto">
+
+      <!-- Logo / Brand -->
+      <div class="footer-logo text-center">
+        <h2
+          class="text-2xl font-bold mb-2 text-white inline-block px-4 py-1 rounded bg-gradient-to-r from-[#0057e7] to-[#001f4d]">
+          Cocktail Explorer 🍸
+        </h2>
+        <p class="text-[0.95rem] text-white/80 max-w-[320px] leading-relaxed mx-auto mt-2">
+          Shake, Stir, and Sip — Discover the art of mixology with us.
+        </p>
+      </div>
+
+
+      <!-- Footer Links -->
+      <div class="footer-links text-center md:text-left">
+        <h3 class="text-[#a1c6ff] font-semibold mb-3">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="#explorer"
+              class="text-[rgba(161,198,255,0.85)] hover:text-[#007bff] transition-colors">Cocktails</a></li>
+          <li><a href="#submitForm" class="text-[rgba(161,198,255,0.85)] hover:text-[#007bff] transition-colors">Submit
+              Recipe</a></li>
+          <li><a href="#about" class="text-[rgba(161,198,255,0.85)] hover:text-[#007bff] transition-colors">About Us</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="footer-socials text-center md:text-left">
+        <h3 class="text-[#a1c6ff] font-semibold mb-3">Follow Us</h3>
+        <div class="flex justify-center md:justify-start gap-4">
+          <a href="#"
+            class="text-[rgba(161,198,255,0.85)] text-xl hover:text-[#0057e7] hover:scale-125 transition-transform transition-colors duration-300"><i
+              class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"
+            class="text-[rgba(161,198,255,0.85)] text-xl hover:text-[#0057e7] hover:scale-125 transition-transform transition-colors duration-300"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="#"
+            class="text-[rgba(161,198,255,0.85)] text-xl hover:text-[#0057e7] hover:scale-125 transition-transform transition-colors duration-300"><i
+              class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"
+            class="text-[rgba(161,198,255,0.85)] text-xl hover:text-[#0057e7] hover:scale-125 transition-transform transition-colors duration-300"><i
+              class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div
+      class="relative z-10 border-t border-[rgba(0,0,128,0.4)] mt-10 pt-4 text-[0.9rem] text-[rgba(161,198,255,0.75)]">
+      <p>
+        Developed with <span class="text-[#007bff]">&hearts;</span> by
+        <strong>Sanjana Sahani</strong> © 2025
+      </p>
+
+      <!-- Scroll Top Button -->
+      <a href="#top"
+        class="absolute right-8 -top-6 bg-gradient-to-br from-[#007bff] to-[#001f4d] p-3 rounded-full text-white transition-all duration-300 hover:-translate-y-1 hover:from-[#3399ff] hover:to-[#003366]">
+        <i class="fa-solid fa-arrow-up fa-beat-fade"></i>
+      </a>
+    </div>
+
+  </footer>
+
+
+  <script>
+    const API_URL = 'https://boozeapi.com/api/v1/cocktails';
+
+    const cocktailList = document.getElementById('cocktailList');
+    const categorySelect = document.getElementById('categorySelect');
+
+    const modal = document.getElementById('modal');
+    const modalData = document.getElementById('modalData');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalInstructions = document.getElementById('modalInstructions');
+    const modalIngredients = document.getElementById('modalIngredients');
+
+    const darkButton = document.getElementById('dark-button');
+    const lightButton = document.getElementById('light-button');
+    const category = document.getElementById('explorer');
+    const about = document.getElementById('about');
+    const abouthead = document.getElementById('about-h');
+    const carousel = document.getElementById('Carousel');
+
+    const body = document.body;
+
+    let cocktails = [];
+
+
+    // === Dark/Light Mode ===
+    darkButton.addEventListener('click', () => {
+      body.classList.remove('bg-white', 'text-black');
+      body.classList.add('bg-black', 'text-white');
+      category.classList.remove('bg-white', 'text-black');
+      category.classList.add('bg-gray-900', 'text-black');
+      cocktailList.classList.add('text-black');
+      about.classList.remove('bg-white', 'text-black');
+      about.classList.add('bg-black', 'text-white');
+      abouthead.classList.add('bg-gray-900', 'text-white', 'pb-6');
+      carousel.classList.remove('bg-white', 'text-black');
+      carousel.classList.add('bg-black', 'text-white');
+      modalData.classList.add('bg-black', 'text-white');
+
+    });
+
+    lightButton.addEventListener('click', () => {
+      body.classList.remove('bg-black', 'text-white');
+      body.classList.add('bg-white', 'text-black');
+      category.classList.remove('bg-gray-900', 'text-white');
+      category.classList.add('bg-white', 'text-black');
+
+      about.classList.remove('bg-black', 'text-white');
+      about.classList.add('bg-white', 'text-black');
+      abouthead.classList.remove('bg-gray-900', 'text-white');
+      abouthead.classList.add('bg-white', 'text-black');
+      carousel.classList.remove('bg-black', 'text-white');
+      carousel.classList.add('bg-white', 'text-black');
+      modalData.classList.remove('bg-black', 'text-white');
+      modalData.classList.add('bg-white', 'text-black');
+    });
+
+
+    // === Fetch Cocktails ===
+    async function fetchCocktails() {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+        cocktails = data.data;
+        renderCategories(cocktails);
+        renderCocktails(cocktails);
+      } catch (err) {
+        cocktailList.innerHTML = '<p class="col-span-full text-center">Failed to load cocktails. Try again later.</p>';
+      }
+    }
+
+    // === Render Categories ===
+    function renderCategories(data) {
+      const categories = [...new Set(data.map(c => c.category.label))];
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categorySelect.appendChild(option);
+      });
+
+      categorySelect.addEventListener('change', (e) => {
+        const selected = e.target.value;
+        const filtered = selected === 'all' ? cocktails : cocktails.filter(c => c.category.label === selected);
+        renderCocktails(filtered);
+      });
+    }
+
+    // === Render Cocktails ===
+    function renderCocktails(data) {
+      cocktailList.innerHTML = '';
+      data.forEach(cocktail => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded shadow-md overflow-hidden cursor-pointer hover:scale-105 transition transform";
+        card.innerHTML = `
+      <img src="${cocktail.image}" alt="${cocktail.name}" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold text-lg mb-1">${cocktail.name}</h3>
+        <p class="text-gray-500">${cocktail.category.label}</p>
+      </div>
+    `;
+        card.addEventListener('click', () => openModal(cocktail));
+        cocktailList.appendChild(card);
+      });
+    }
+
+    // === Open Modal ===
+    function openModal(cocktail) {
+      modalTitle.textContent = cocktail.name;
+      modalImg.src = cocktail.image;
+      modalInstructions.textContent = cocktail.instructions;
+      modalIngredients.innerHTML = '';
+      cocktail.ingredients.forEach(ing => {
+        const li = document.createElement('li');
+        li.textContent = ing.name + (ing.ABV ? ` (${ing.ABV}% ABV)` : '');
+        modalIngredients.appendChild(li);
+      });
+      modal.classList.remove('hidden');
+    }
+
+    // === Close Modal ===
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    window.addEventListener('click', e => { if (e.target === modal) modal.classList.add('hidden'); });
+
+    // === Form Validation ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById("cocktailForm");
+      const successMsg = document.getElementById("formSuccess");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+        successMsg.style.display = "none";
+
+        form.querySelectorAll("[required]").forEach(field => {
+          const error = field.nextElementSibling;
+          if (!field.value.trim()) {
+            error.textContent = "This field is required.";
+            error.style.display = "block";
+            field.style.borderColor = "red";
+            isValid = false;
+          } else if (field.type === "email" && !validateEmail(field.value)) {
+            error.textContent = "Please enter a valid email address.";
+            error.style.display = "block";
+            field.style.borderColor = "red";
+            isValid = false;
+          } else {
+            error.textContent = "";
+            error.style.display = "none";
+            field.style.borderColor = "#ccc";
+          }
+        });
+
+        if (isValid) {
+          successMsg.textContent = "🎉 Thank you! Your cocktail recipe has been submitted.";
+          successMsg.style.display = "block";
+          form.reset();
+        }
+      });
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+    });
+
+    // === Initialize ===
+    fetchCocktails();
+
+  </script>
+</body>
+
+</html>
