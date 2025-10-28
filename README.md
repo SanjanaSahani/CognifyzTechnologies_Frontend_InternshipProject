@@ -107,13 +107,14 @@ git clone https://github.com/SanjanaSahani/CognifyzTechnologies_Frontend_Interns
  Form: Submit your own cocktail recipes
  Dark/Light Mode toggle
  Image Carousel and responsive layout
+```
 
-📌 Author
+## 📌 Author
 
 Sanjana Sahani
 Frontend Developer Intern at Cognifyz Technologies
 GitHub: https://github.com/SanjanaSahani
 
-📄 License
+## 📄 License
 
 This project is for educational purposes only and not licensed for commercial use.
